@@ -1,7 +1,7 @@
 /* XBA AI — نظّف نصك
    يحفظ ملفات الأداة في المتصفح عشان تفتح وتشتغل حتى بدون نت.
    ما يرسل أي نص أو صورة لأي مكان. */
-var CACHE = 'xba-clean-v3';
+var CACHE = 'xba-clean-v4';
 self.addEventListener('install', function () { self.skipWaiting(); });
 self.addEventListener('activate', function (e) {
   e.waitUntil(caches.keys().then(function (keys) {
