@@ -1,11 +1,11 @@
 /* XBA AI — نظّف نصك
    يحفظ ملفات الأداة في المتصفح عشان تفتح وتشتغل حتى بدون نت.
    ما يرسل أي نص أو صورة لأي مكان. */
-var CACHE = 'xba-clean-v2';
+var CACHE = 'xba-clean-v3';
 self.addEventListener('install', function () { self.skipWaiting(); });
 self.addEventListener('activate', function (e) {
   e.waitUntil(caches.keys().then(function (keys) {
-    return Promise.all(keys.filter(function (k) { return k !== CACHE; }).map(function (k) { return caches.delete(k); }));
+    return Promise.all(keys.filter(function (k) { return k.indexOf('xba-clean-') === 0 && k !== CACHE; }).map(function (k) { return caches.delete(k); }));
   }).then(function () { return self.clients.claim(); }));
 });
 self.addEventListener('fetch', function (e) {
